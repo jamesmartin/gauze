@@ -1,0 +1,26 @@
+.filter-list {
+  width: auto;
+  margin: auto;
+}
+
+.filter-list .filterable {
+  display: inline-block;
+  width: 20%;
+  border: 1px solid grey;
+  border-radius: 2px;
+  margin: 10px;
+  padding: 10px;
+  background: #cceedd;
+}
+
+.filter-list .filterable.filter-visible {
+  display: inline-block;
+}
+
+.filter-list .filterable.filter-hidden {
+  display: none;
+}
+
+.filter-list .filterable.test {
+  background: red;
+}

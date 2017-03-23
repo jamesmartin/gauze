@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="twmc.css" />
+    <script src="twmc.js"></script>
+  </head>
+
+  <body>
+    <h1>Testing div filtering and sorting</h1>
+
+    <div class="filters">
+      <button data-filter-type="all" type="button" class="filter-button">All</button>
+      <button data-filter-type="church" type="button" class="filter-button">Church Ceremony</button>
+      <button data-filter-type="nonreligious" type="button" class="filter-button">Non-religious</button>
+      <button data-filter-type="band" type="button" class="filter-button">Band</button>
+    </div>
+
+    <div class="filter-list">
+      <div class="filterable" data-filter-type="church" data-sort-priority="3">
+        Church ceremony numero 1
+      </div>
+      <div class="filterable" data-filter-type="church" data-sort-priority="1">
+        Church ceremony numero 2
+      </div>
+      <div class="filterable" data-filter-type="church">
+        Church ceremony numero 3
+      </div>
+
+      <div class="filterable" data-filter-type="nonreligious">
+        Non-religious numero 1
+      </div>
+      <div class="filterable" data-filter-type="nonreligious">
+        Non-religious numero 2
+      </div>
+      <div class="filterable" data-filter-type="nonreligious" data-sort-priority="1">
+        Non-religious numero 3
+      </div>
+
+      <div class="filterable" data-filter-type="band" data-sort-priority="1">
+        Band numero 1
+      </div>
+      <div class="filterable" data-filter-type="band" data-sort-priority="3">
+        Band numero 2
+      </div>
+      <div class="filterable" data-filter-type="band" data-sort-priority="2">
+        Band numero 3
+      </div>
+    </div>
+  </body>
+</html>
