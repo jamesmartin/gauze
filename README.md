@@ -2,7 +2,6 @@
 
 Gauze is a very simple JavaScript file that filters and sorts HTML elements.
 
-
 ## Usage
 
 Start by adding `gauze.js` to your HTML document, and a little CSS (feel free
@@ -72,4 +71,14 @@ not mandatory:
   </div>
 ```
 
-If you want to see Gauze in action, check out the [example](https://jamesmartin.github.io/gauze/).
+If you want to see Gauze in action, check out the
+[example](https://jamesmartin.github.io/gauze/).
+
+## Footnotes
+
+Gauze is less than 100 lines of JavaScript and has no dependencies on third
+party libraries. It was designed to be approachable and easy to modify to suit
+your needs, so please read the code and change it to suit your preferences.
+
+Gauze uses some JavaScript directives that probably won't work on older
+browsers like IE 6/7.
