@@ -20,7 +20,3 @@
 .filter-list .filterable.filter-hidden {
   display: none;
 }
-
-.filter-list .filterable.test {
-  background: red;
-}
