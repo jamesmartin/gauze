@@ -26,7 +26,21 @@ function hide(filterable) {
 }
 
 function filters(filterable) {
-  return JSON.parse(filterable.dataset.filters) || []
+  var parsedFilters = []
+  try {
+    parsedFilters = JSON.parse(filterable.dataset.filters)
+  } catch (e) {
+    if (e instanceof SyntaxError) {
+      console.warn("Gauze: there's a problem with your filters: ")
+      console.warn(filterable.innerHTML)
+      console.warn(filterable.dataset.filters)
+    } else {
+      console.warn("Gauze: Error parsing filters")
+      console.warn(filterable)
+      console.warn(e)
+    }
+  }
+  return parsedFilters
 }
 
 function filterOfType(filterable, filterType) {
