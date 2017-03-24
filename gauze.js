@@ -25,6 +25,21 @@ function hide(filterable) {
   filterable.classList.remove('filter-visible')
 }
 
+function filters(filterable) {
+  return JSON.parse(filterable.dataset.filters) || []
+}
+
+function filterOfType(filterable, filterType) {
+  return filters(filterable).find(function(filter) {
+    return filter.type === filterType
+  })
+}
+function filterTypes(filterable) {
+  return filters(filterable).map(function(filter) {
+    return filter.type
+  })
+}
+
 function filterBy(filterType) {
   if (filterType === 'all') {
     updateAllFilterables(function(filterable) {
@@ -32,13 +47,17 @@ function filterBy(filterType) {
     })
   } else {
     updateAllFilterables(function(filterable) {
-      if (filterable.dataset.filterType === filterType) {
+      if (filterTypes(filterable).includes(filterType)) {
         show(filterable)
       } else {
         hide(filterable)
       }
     })
   }
+}
+
+function nullFilter(filterType) {
+  return { type: filterType, sortPriority: maxSafeInteger() }
 }
 
 function populateFilterList(filterables) {
@@ -52,10 +71,18 @@ function populateFilterList(filterables) {
   container.appendChild(elements)
 }
 
-function sortByPriority(items) {
+function safeSortPriorityValue(filter) {
+  return parseInt(filter.sortPriority) || maxSafeInteger()
+}
+function sortByPriority(items, filterType) {
+  if (!filterType)
+    return items
+
   return Array.prototype.slice.call(items).sort(function(a, b) {
-    var aSortPriority = a.dataset.sortPriority || maxSafeInteger()
-    var bSortPriority = b.dataset.sortPriority || maxSafeInteger()
+    var aFilter = filterOfType(a, filterType) || nullFilter(filterType)
+    var bFilter = filterOfType(b, filterType) || nullFilter(filterType)
+    var aSortPriority = safeSortPriorityValue(aFilter)
+    var bSortPriority = safeSortPriorityValue(bFilter)
 
     if (aSortPriority < bSortPriority) {
       return -1
@@ -67,10 +94,10 @@ function sortByPriority(items) {
   })
 }
 
-function sortFilteredItems() {
+function sortFilteredItems(filterType) {
   var visibleItems = document.querySelectorAll('.filter-list .filterable.filter-visible')
   populateFilterList(
-    sortByPriority(visibleItems)
+    sortByPriority(visibleItems, filterType)
   )
 }
 
@@ -82,7 +109,7 @@ function bindFilterButtons() {
       if (filterType) {
         populateFilterList(originalFilterables)
         filterBy(filterType)
-        sortFilteredItems()
+        sortFilteredItems(filterType)
       }
     }
   })
