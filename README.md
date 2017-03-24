@@ -82,8 +82,8 @@ If you want to see Gauze in action, check out the
 ## Footnotes
 
 Gauze is less than 150 lines of JavaScript and has no dependencies on third
-party libraries. It's approachable and easy to modify to suit your needs, so
-please read the code and change it to suit your preferences.
+party libraries. Please read the code: It's approachable and easy to modify to
+suit your needs.
 
 Gauze uses some JavaScript that probably won't work on older browsers like IE
 6/7.
