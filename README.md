@@ -39,46 +39,51 @@ not mandatory:
 
 ```html
   <div class="filter-list">
-    <div class="filterable" data-filter-type="fruit" data-sort-priority="3">
+    <div class="filterable" data-filters='[ { "type":"fruit", "sortPriority":"3" }, { "type":"vegetables", "sortPriority":"2" } ]'>
       Apple
     </div>
-    <div class="filterable" data-filter-type="fruit" data-sort-priority="1">
+    <div class="filterable" data-filters='[ { "type":"fruit", "sortPriority":"1" } ]'>
       Banana
     </div>
-    <div class="filterable" data-filter-type="fruit">
+    <div class="filterable" data-filters='[ { "type":"fruit"} ]'>
       Mangosteen
     </div>
 
-    <div class="filterable" data-filter-type="vegetables">
+    <div class="filterable" data-filters='[ { "type":"vegetables" } ]'>
       Broccoli
     </div>
-    <div class="filterable" data-filter-type="vegetables">
+    <div class="filterable" data-filters='[ { "type":"vegetables" } ]'>
       Carrot
     </div>
-    <div class="filterable" data-filter-type="vegetables" data-sort-priority="1">
+    <div class="filterable" data-filters='[ { "type":"vegetables", "sortPriority":"1" }, { "type":"fruit", "sortPriority":"2" } ]'>
       Kale
     </div>
 
-    <div class="filterable" data-filter-type="protein" data-sort-priority="1">
+    <div class="filterable" data-filters='[ { "type":"protein", "sortPriority":"1" } ]'>
       Beef
     </div>
-    <div class="filterable" data-filter-type="protein" data-sort-priority="3">
+    <div class="filterable" data-filters='[ { "type":"protein", "sortPriority":"3" } ]'>
       Chicken
     </div>
-    <div class="filterable" data-filter-type="protein" data-sort-priority="2">
+    <div class="filterable" data-filters='[ { "type":"protein", "sortPriority":"2" } ]'>
       Tuna
     </div>
   </div>
 ```
+
+Notice that items can belong to any number of type categories, each with their
+own sort priority: See `Apple` and `Kale` above, which belong in both fruit and
+vegetables for some reason. Act like a Victorian scientist and concoct whatever
+taxonomy makes sense to you.
 
 If you want to see Gauze in action, check out the
 [example](https://jamesmartin.github.io/gauze/).
 
 ## Footnotes
 
-Gauze is less than 100 lines of JavaScript and has no dependencies on third
-party libraries. It was designed to be approachable and easy to modify to suit
-your needs, so please read the code and change it to suit your preferences.
+Gauze is less than 150 lines of JavaScript and has no dependencies on third
+party libraries. It's approachable and easy to modify to suit your needs, so
+please read the code and change it to suit your preferences.
 
-Gauze uses some JavaScript directives that probably won't work on older
-browsers like IE 6/7.
+Gauze uses some JavaScript that probably won't work on older browsers like IE
+6/7.
