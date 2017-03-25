@@ -2,6 +2,14 @@
   <head>
     <link rel="stylesheet" type="text/css" href="example.css" />
     <script src="gauze.js"></script>
+    <script>
+      // When the document is ready, bind the filter buttons
+      document.onreadystatechange = function() {
+        if (document.readyState === 'interactive') {
+          window._gauze.filtering.bindFilterButtons()
+        }
+      }
+    </script>
   </head>
 
   <body>

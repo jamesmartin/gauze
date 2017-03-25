@@ -137,9 +137,3 @@
     }
   })()
 }(window._gauze = window._gauze || {}, window, document))
-
-document.onreadystatechange = function() {
-  if (document.readyState === 'interactive') {
-    window._gauze.filtering.bindFilterButtons()
-  }
-}
