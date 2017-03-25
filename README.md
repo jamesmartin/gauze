@@ -22,6 +22,35 @@ to move this to your own CSS file and customize as you like):
 </head>
 ```
 
+Then add a little JavaScript to bind Gauze to your filter buttons:
+
+
+```html
+<head>
+  <script src="gauze.js"></script>
+  <style>
+    .filter-list .filterable.filter-visible {
+      display: inline-block;
+    }
+
+    .filter-list .filterable.filter-hidden {
+      display: none;
+    }
+  </style>
+
+  <script>
+    // Call the _gauze.filtering.bindFilterButtons() function when the document
+    is ready to be interacted with (the DOM is loaded). You can call this
+    inline or move it to an application initializer.
+    document.onreadystatechange = function() {
+      if (document.readyState === 'interactive') {
+        window._gauze.filtering.bindFilterButtons()
+      }
+    }
+  </script>
+</head>
+```
+
 Now add some filter buttons (you can use anchors, or any clickable element):
 
 ```html
