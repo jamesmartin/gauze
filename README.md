@@ -1,6 +1,6 @@
 # Gauze
 
-Gauze is a very simple JavaScript file that filters and sorts HTML elements.
+Gauze is a very simple JavaScript module that filters and sorts HTML elements.
 
 ## Usage
 
