@@ -4,8 +4,9 @@ Gauze is a very simple JavaScript module that filters and sorts HTML elements.
 
 ## Usage
 
-Start by adding `gauze.js` to your HTML document, and a little CSS (feel free
-to move this to your own CSS file and customize as you like):
+Start by adding `gauze.js` to your HTML document, along with a little CSS to
+show and hide filtered elements (feel free to move this to your own CSS file
+and customize as you like):
 
 ```html
 <head>
