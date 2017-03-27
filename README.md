@@ -146,15 +146,15 @@ Separate containers for buttons and filterables, happy days!
 
 ```html
 <div class="my-filter-triggers">
-  <button class="filter-trigger">Fox</button>
-  <button class="filter-trigger">Rabbit</button>
-  <button class="filter-trigger">Toad</button>
+  <button class="filter-trigger" data-filter-type="fox">Foxes</button>
+  <button class="filter-trigger" data-filter-type="rabbit">Rabbits</button>
+  <button class="filter-trigger" data-filter-type="toad">Toads</button>
 </div>
 
 <div class="my-filter-container">
-  <div class="filterable">Fox</div>
-  <div class="filterable">Rabbit</div>
-  <div class="filterable">Toad</div>
+  <div class="filterable" data-filters='[ { "type":"fox" } ]'>Fantastic Mr Fox</div>
+  <div class="filterable" data-filters='[ { "type":"rabbit" } ]'>Bugs Bunny</div>
+  <div class="filterable" data-filters='[ { "type":"toad" } ]'>Mister Toad</div>
 </div>
 ```
 
@@ -165,14 +165,14 @@ This won't work the way you hope!
 ```html
 <div class="my-filter-container">
   <div class="my-filter-triggers">
-    <button class="filter-trigger">Fox</button>
-    <button class="filter-trigger">Rabbit</button>
-    <button class="filter-trigger">Toad</button>
+    <button class="filter-trigger" data-filter-type="fox">Foxes</button>
+    <button class="filter-trigger" data-filter-type="rabbit">Rabbits</button>
+    <button class="filter-trigger" data-filter-type="toad">Toads</button>
   </div>
 
-  <div class="filterable">Fox</div>
-  <div class="filterable">Rabbit</div>
-  <div class="filterable">Toad</div>
+  <div class="filterable" data-filters='[ { "type":"fox" } ]'>Fantastic Mr Fox</div>
+  <div class="filterable" data-filters='[ { "type":"rabbit" } ]'>Bugs Bunny</div>
+  <div class="filterable" data-filters='[ { "type":"toad" } ]'>Mister Toad</div>
 </div>
 ```
 
