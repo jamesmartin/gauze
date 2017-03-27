@@ -40,12 +40,12 @@ Then add a little JavaScript to bind Gauze to your filter buttons:
   </style>
 
   <script>
-    // Call the _gauze.filtering.bindFilterButtons() function when the document
+    // Call the _gauze.bindFilterButtons() function when the document
     // is ready to be interacted with (the DOM is loaded). You can call this
     // inline or move it to an application initializer.
     document.onreadystatechange = function() {
       if (document.readyState === 'interactive') {
-        window._gauze.filtering.bindFilterButtons()
+        window._gauze.bindFilterButtons()
       }
     }
   </script>
