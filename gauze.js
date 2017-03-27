@@ -6,12 +6,15 @@
     return 9007199254740991
   }
 
-  var allFilterables = function() {
-    return document.querySelectorAll('.filter-list .filterable')
+  var allFilterables = function(filterContainerSelector) {
+    var filterables = document.querySelectorAll(filterContainerSelector + ' .filterable')
+    if (filterables.length === 0)
+      console.warn('Config or markup problem:\n No filterable elements found using selector: "' + filterContainerSelector + ' .filterable"')
+    return filterables
   }
 
-  var updateAllFilterables = function(fn) {
-    allFilterables().forEach(function(filterable) {
+  var updateAllFilterables = function(filterContainerSelector, fn) {
+    allFilterables(filterContainerSelector).forEach(function(filterable) {
       fn(filterable)
     })
   }
@@ -55,13 +58,13 @@
     })
   }
 
-  var filterBy = function(filterType) {
+  var filterBy = function(filterType, filterContainerSelector) {
     if (filterType === 'all') {
-      updateAllFilterables(function(filterable) {
+      updateAllFilterables(filterContainerSelector, function(filterable) {
         show(filterable)
       })
     } else {
-      updateAllFilterables(function(filterable) {
+      updateAllFilterables(filterContainerSelector, function(filterable) {
         if (filterTypes(filterable).includes(filterType)) {
           show(filterable)
         } else {
@@ -75,8 +78,8 @@
     return { type: filterType, sortPriority: maxSafeInteger() }
   }
 
-  var populateFilterList = function(filterables) {
-    var container = document.querySelector('.filter-list')
+  var populateFilterList = function(filterables, filterContainerSelector) {
+    var container = document.querySelector(filterContainerSelector)
     var elements = document.createDocumentFragment()
     filterables.forEach(function(el) {
       var item = el.cloneNode(true)
@@ -110,16 +113,18 @@
     })
   }
 
-  var sortFilteredItems = function(filterType) {
-    var visibleItems = document.querySelectorAll('.filter-list .filterable.filter-visible')
+  var sortFilteredItems = function(filterType, filterContainerSelector) {
+    var visibleItems = document.querySelectorAll(filterContainerSelector + ' .filterable.filter-visible')
     populateFilterList(
-      sortByPriority(visibleItems, filterType)
+      sortByPriority(visibleItems, filterType),
+      filterContainerSelector
     )
   }
 
   var defaultOptions = function() {
     return {
-      triggerSelector: '.filters .filter-button'
+      triggerSelector: '.filters .filter-button',
+      filterContainerSelector: '.filter-list'
     }
   }
 
@@ -135,14 +140,14 @@
   }
 
   var bindFilterButtons = function(options) {
-    var originalFilterables = allFilterables()
+    var originalFilterables = allFilterables(config(options).filterContainerSelector)
     document.addEventListener('click', function(event) {
       if (event.target.matches(config(options).triggerSelector)) {
         var filterType = event.target.dataset.filterType
         if (filterType) {
-          populateFilterList(originalFilterables)
-          filterBy(filterType)
-          sortFilteredItems(filterType)
+          populateFilterList(originalFilterables, config(options).filterContainerSelector)
+          filterBy(filterType, config(options).filterContainerSelector)
+          sortFilteredItems(filterType, config(options).filterContainerSelector)
         }
       }
     })

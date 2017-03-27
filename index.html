@@ -7,7 +7,8 @@
       document.onreadystatechange = function() {
         if (document.readyState === 'interactive') {
           window._gauze.bindFilterButtons({
-            triggerSelector: '.my-filters .filter-button'
+            triggerSelector: '.my-filters .filter-button',
+            filterContainerSelector: '.my-filter-list'
           })
         }
       }
@@ -28,7 +29,7 @@
       <button data-filter-type="protein" type="button" class="filter-button">Protein</button>
     </div>
 
-    <div class="filter-list">
+    <div class="my-filter-list">
       <div class="filterable" data-filters='[ { "type":"fruit", "sortPriority":"3" }, { "type":"vegetables", "sortPriority":"2" } ]'>
         Apple
       </div>

@@ -20,3 +20,26 @@
 .filter-list .filterable.filter-hidden {
   display: none;
 }
+
+.my-filter-list {
+  width: auto;
+  margin: auto;
+}
+
+.my-filter-list .filterable {
+  display: inline-block;
+  width: 20%;
+  border: 1px solid grey;
+  border-radius: 2px;
+  margin: 10px;
+  padding: 10px;
+  background: #ddccee;
+}
+
+.my-filter-list .filterable.filter-visible {
+  display: inline-block;
+}
+
+.my-filter-list .filterable.filter-hidden {
+  display: none;
+}
