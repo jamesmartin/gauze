@@ -114,7 +114,7 @@ If you want to see Gauze in action, check out the
 Gauze expects your HTML document to have a structure like the example above,
 but it can be flexible too:
 
-In this example we tell Gauze that it when it's looking for `triggerSelector`
+In this example we tell Gauze that when it's looking for `triggerSelector`
 (the element that triggers filtering) and `filterContainerSelector` (the
 element that contains `filterable` items) that it should use our own custom
 values:
