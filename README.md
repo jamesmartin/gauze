@@ -2,6 +2,9 @@
 
 Gauze is a very simple JavaScript module that filters and sorts HTML elements.
 
+If you want to see if Gauze is right for you, check out the
+[example](https://jamesmartin.github.io/gauze/).
+
 ## Usage
 
 Start by adding `gauze.js` to your HTML document, along with a little CSS to
@@ -105,9 +108,6 @@ Notice that items can belong to any number of type categories, each with their
 own sort priority: See `Apple` and `Kale` above, which belong in both fruit and
 vegetables for some reason. Act like a Victorian scientist and concoct whatever
 taxonomy makes sense to you.
-
-If you want to see Gauze in action, check out the
-[example](https://jamesmartin.github.io/gauze/).
 
 ## Options
 
