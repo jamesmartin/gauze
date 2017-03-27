@@ -6,7 +6,9 @@
       // When the document is ready, bind the filter buttons
       document.onreadystatechange = function() {
         if (document.readyState === 'interactive') {
-          window._gauze.bindFilterButtons()
+          window._gauze.bindFilterButtons({
+            triggerSelector: '.my-filters .filter-button'
+          })
         }
       }
     </script>
@@ -19,7 +21,7 @@
       Gauze is a very simple JavaScript module that filters and sorts HTML elements.
     </p>
 
-    <div class="filters">
+    <div class="my-filters">
       <button data-filter-type="all" type="button" class="filter-button">All food</button>
       <button data-filter-type="fruit" type="button" class="filter-button">Fruit</button>
       <button data-filter-type="vegetables" type="button" class="filter-button">Vegetables</button>

@@ -117,10 +117,27 @@
     )
   }
 
-  var bindFilterButtons = function() {
+  var defaultOptions = function() {
+    return {
+      triggerSelector: '.filters .filter-button'
+    }
+  }
+
+  var config = function(options) {
+    if (options === undefined)
+      return defaultOptions()
+
+    var finalConfig = {}
+    Object.keys(defaultOptions()).forEach(function(key) {
+      finalConfig[key] = options[key] || defaultOptions()[key]
+    })
+    return finalConfig
+  }
+
+  var bindFilterButtons = function(options) {
     var originalFilterables = allFilterables()
     document.addEventListener('click', function(event) {
-      if (event.target.matches('.filters .filter-button')) {
+      if (event.target.matches(config(options).triggerSelector)) {
         var filterType = event.target.dataset.filterType
         if (filterType) {
           populateFilterList(originalFilterables)
