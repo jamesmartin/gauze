@@ -125,8 +125,9 @@ values:
       document.onreadystatechange = function() {
         if (document.readyState === 'interactive') {
           window._gauze.bindFilterButtons({
-            triggerSelector: '.my-filters .filter-button',
-            filterContainerSelector: '.my-filter-list'
+            // Use custom selectors to tell Gauze about the shape of our HTML
+            triggerSelector: '.my-filter-triggers .filter-trigger',
+            filterContainerSelector: '.my-filter-container'
           })
         }
       }
