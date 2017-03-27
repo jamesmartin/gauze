@@ -178,7 +178,7 @@ This won't work the way you hope!
 
 ## Footnotes
 
-Gauze is less about 150 lines of JavaScript and has no dependencies on third
+Gauze is about 150 lines of JavaScript and has no dependencies on third
 party libraries. Please read the code: It's approachable and easy to modify to
 suit your needs.
 
