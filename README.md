@@ -109,6 +109,72 @@ taxonomy makes sense to you.
 If you want to see Gauze in action, check out the
 [example](https://jamesmartin.github.io/gauze/).
 
+## Options
+
+Gauze expects your HTML document to have a structure like the example above,
+but it can be flexible too:
+
+In this example we tell Gauze that it when it's looking for `triggerSelector`
+(the element that triggers filtering) and `filterContainerSelector` (the
+element that contains `filterable` items) that it should use our own custom
+values:
+
+```html
+    <script>
+      // When the document is ready, bind the filter buttons
+      document.onreadystatechange = function() {
+        if (document.readyState === 'interactive') {
+          window._gauze.bindFilterButtons({
+            triggerSelector: '.my-filters .filter-button',
+            filterContainerSelector: '.my-filter-list'
+          })
+        }
+      }
+    </script>
+```
+
+**WARNING** Even though Gauze can be flexible, if you nest buttons and
+filterables under the same container element then bad things will happen (your
+buttons will be removed from the DOM when you first try filtering).
+
+For example:
+
+**GOOD**
+
+Separate containers for buttons and filterables, happy days!
+
+```html
+<div class="my-filter-triggers">
+  <button class="filter-trigger">Fox</button>
+  <button class="filter-trigger">Rabbit</button>
+  <button class="filter-trigger">Toad</button>
+</div>
+
+<div class="my-filter-container">
+  <div class="filterable">Fox</div>
+  <div class="filterable">Rabbit</div>
+  <div class="filterable">Toad</div>
+</div>
+```
+
+**BAD**
+
+This won't work the way you hope!
+
+```html
+<div class="my-filter-container">
+  <div class="my-filter-triggers">
+    <button class="filter-trigger">Fox</button>
+    <button class="filter-trigger">Rabbit</button>
+    <button class="filter-trigger">Toad</button>
+  </div>
+
+  <div class="filterable">Fox</div>
+  <div class="filterable">Rabbit</div>
+  <div class="filterable">Toad</div>
+</div>
+```
+
 ## Footnotes
 
 Gauze is less than 150 lines of JavaScript and has no dependencies on third
